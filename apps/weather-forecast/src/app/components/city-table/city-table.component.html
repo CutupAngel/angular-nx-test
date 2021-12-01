@@ -1,0 +1,17 @@
+<div>
+	<div class="tHeader">
+		<div class="tS-2 tCell">City</div>
+		<div *ngFor="let i of period" class="tS-1 tCell">{{i}}</div>
+	</div>
+	<div class="tBorder" *ngIf="weather && weather.length > 0">
+		<div class="tS-2 tCell">{{city}}</div>
+		<div *ngFor="let day of period let i = index" class="tS-1 tCell">
+			<div *ngIf="mode == 'daily'">
+				{{weather[i].temp.day}}
+			</div>
+			<div *ngIf="mode == 'hourly'">
+				{{weather[i * 3].temp}}
+			</div>
+		</div>
+	</div>
+</div>
